@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Mom</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      color: #4a4a4a;
+      position: relative;
+      animation: gradientBackground 10s ease infinite;
+    }
+
+    /* Gradient Animation */
+    @keyframes gradientBackground {
+      0% {
+        background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+      }
+      25% {
+        background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+      }
+      50% {
+        background: linear-gradient(to bottom right, #ff9a8b, #ff6a88);
+      }
+      75% {
+        background: linear-gradient(to bottom right, #a6c1ee, #fbc2eb);
+      }
+      100% {
+        background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #d94e67;
+      margin-top: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: fadeInSlide 2s ease-in-out forwards;
+    }
+
+    .quote {
+      font-size: 2rem;
+      color: #333;
+      margin: 20px auto;
+      padding: 25px;
+      border: 3px dashed #ffffff;
+      border-radius: 15px;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      display: none; /* Initially hidden */
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .image-container {
+      margin: 20px auto;
+    }
+
+    .image-container img {
+      width: 300px;
+      height: auto;
+      border-radius: 15px;
+      border: 5px solid #ffffff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      animation: zoomIn 1.5s ease-in-out forwards;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 20px;
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      color: #fff;
+      background: #d94e67;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse 1.5s infinite;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background: #ef5678;
+    }
+
+    .hidden-message {
+      font-size: 2.2rem;
+      color: #d94e67;
+      margin-top: 30px;
+      animation: bounce 1s infinite alternate;
+      display: none;
+    }
+
+    .heart {
+      font-size: 5rem;
+      color: #d94e67;
+      margin-top: 20px;
+      display: none;
+      animation: pop 1s forwards, heartbeat 1.5s infinite;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #d94e67;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 1.2rem;
+      border-top: 2px solid #fff;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      animation: slideInFooter 2s ease-in-out;
+    }
+
+    footer p {
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes slideInFooter {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>To the Most Amazing Mom</h1>
+  <div class="image-container">
+    <img src="mummy.jpg" alt="Mom and Son">
+  </div>
+  <button class="button" onclick="showQuote()">Reveal a Special Quote</button>
+  <button class="button" onclick="showHeart()">Show My Love</button>
+
+  <div class="quote" id="quote">
+    "Mom, you carried me in your womb, held me in your arms, and have always carried me in your heart.  
+    You are my first home, my safe place, and my eternal love. ❤️"
+  </div>
+
+  <div class="hidden-message" id="hiddenMessage">I love you, Mom! 🌟</div>
+  <div class="heart" id="heart">💖</div>
+
+  <footer>
+    <p>Created with ❤️ by your son Pushkar</p>
+  </footer>
+
+  <script>
+    function showQuote() {
+      document.getElementById('quote').style.display = 'block';
+    }
+
+    function showHeart() {
+      document.getElementById('heart').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('hiddenMessage').style.display = 'block';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
